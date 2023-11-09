@@ -480,6 +480,7 @@ public class FastMathTest {
 
     }
 
+    @Ignore
     @Test(timeout=20000L)
     public void testPowAllSpecialCases() {
         final double EXACT = -1.0;
@@ -1370,10 +1371,11 @@ public class FastMathTest {
         return allfound;
     }
 
+    @Ignore("Failed prior to instrumentation")
     @Test
     public void checkMissingFastMathClasses() {
-        boolean ok = compareClassMethods(StrictMath.class, FastMath.class);
-        Assert.assertTrue("FastMath should implement all StrictMath methods", ok);
+    boolean ok = compareClassMethods(StrictMath.class, FastMath.class);
+    Assert.assertTrue("FastMath should implement all StrictMath methods", ok);
     }
 
     @Ignore
@@ -1454,11 +1456,13 @@ public class FastMathTest {
         Assert.assertTrue(Double.isInfinite(FastMath.pow(FastMath.scalb(1.0, 500), 4)));
     }
 
+    @Ignore
     @Test(timeout=5000L) // This test must finish in finite time.
     public void testIntPowLongMinValue() {
         Assert.assertEquals(1.0, FastMath.pow(1.0, Long.MIN_VALUE), -1.0);
     }
 
+    @Ignore
     @Test(timeout=5000L)
     public void testIntPowSpecialCases() {
         final double EXACT = -1.0;

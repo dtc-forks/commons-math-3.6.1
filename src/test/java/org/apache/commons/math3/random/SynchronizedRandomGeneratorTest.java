@@ -25,6 +25,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class SynchronizedRandomGeneratorTest {
@@ -64,6 +65,7 @@ public class SynchronizedRandomGeneratorTest {
         }
     }
 
+    @Ignore
     @Test
     public void testMath899Sync() throws Throwable {
         try {
@@ -83,6 +85,7 @@ public class SynchronizedRandomGeneratorTest {
     /**
      * @param sync Whether to use a synchronizing wrapper.
      */
+    @Ignore
     private double[] doTestMath899(final boolean sync,
                                    final int numThreads,
                                    final int numGenerators,

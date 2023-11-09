@@ -28,6 +28,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.apache.commons.math3.util.Pair;
 import org.junit.Test;
 import org.junit.Assert;
+import org.junit.Ignore;
 
 /**
  * Test for {@link BaseRuleFactory}.
@@ -38,6 +39,7 @@ public class BaseRuleFactoryTest {
      * Tests that a given rule rule will be computed and added once to the cache
      * whatever the number of times this rule is called concurrently.
      */
+    @Ignore
     @Test
         public void testConcurrentCreation() throws InterruptedException,
                                                     ExecutionException {

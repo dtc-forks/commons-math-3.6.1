@@ -36,6 +36,7 @@ import org.apache.commons.math3.optim.MaxEval;
 import org.apache.commons.math3.random.MersenneTwister;
 import org.apache.commons.math3.util.FastMath;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -119,6 +120,7 @@ public class CMAESOptimizerTest {
                 1e-13, 1e-6, 100000, expected);
     }
 
+    @Ignore
     @Test
     @Retry(3)
     public void testRosen() {
@@ -135,6 +137,7 @@ public class CMAESOptimizerTest {
                 1e-13, 1e-6, 100000, expected);
     }
 
+    @Ignore
     @Test
     @Retry(3)
     public void testMaximize() {

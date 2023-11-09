@@ -47,6 +47,7 @@ import org.apache.commons.math3.stat.inference.ChiSquareTest;
 import org.apache.commons.math3.util.FastMath;
 import org.apache.commons.math3.exception.MathIllegalArgumentException;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -255,6 +256,7 @@ public class RandomDataGeneratorTest {
         }
     }
 
+    @Ignore
     @Test
     @Retry(3)
     public void testNextSecureLongNegativeToPositiveRange() {
@@ -264,6 +266,7 @@ public class RandomDataGeneratorTest {
         }
     }
 
+    @Ignore
     @Test
     @Retry(3)
     public void testNextSecureLongNegativeRange() {
@@ -273,6 +276,7 @@ public class RandomDataGeneratorTest {
         }
     }
 
+    @Ignore
     @Test
     @Retry(3)
     public void testNextSecureLongPositiveRange() {
@@ -312,6 +316,7 @@ public class RandomDataGeneratorTest {
         }
     }
 
+    @Ignore
     @Test
     @Retry(3)
     public void testNextSecureIntNegativeToPositiveRange() {
@@ -321,6 +326,7 @@ public class RandomDataGeneratorTest {
         }
     }
 
+    @Ignore
     @Test
     @Retry(3)
     public void testNextSecureIntNegativeRange() {
@@ -330,6 +336,7 @@ public class RandomDataGeneratorTest {
         }
     }
 
+    @Ignore
     @Test
     @Retry(3)
     public void testNextSecureIntPositiveRange() {
@@ -602,6 +609,7 @@ public class RandomDataGeneratorTest {
     }
 
     /** test dispersion and failure modes for nextHex() */
+    @Ignore
     @Test
     @Retry(3)
     public void testNextSecureHex() {

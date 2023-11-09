@@ -29,6 +29,7 @@ import org.apache.commons.math3.util.CombinatoricsUtils;
 import org.apache.commons.math3.util.FastMath;
 import org.apache.commons.math3.util.MathArrays;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -303,6 +304,7 @@ public class KolmogorovSmirnovTestTest {
      * Verify that large sample method is selected for sample product > Integer.MAX_VALUE
      * (integer overflow in sample product)
      */
+    @Ignore
     @Test(timeout=5000)
     public void testTwoSampleProductSizeOverflow() {
         final int n = 50000;

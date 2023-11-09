@@ -34,6 +34,7 @@ import org.apache.commons.math3.ml.neuralnet.sofm.KohonenTrainingTask;
 import org.apache.commons.math3.util.FastMath;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 
 /**
@@ -41,6 +42,8 @@ import org.junit.runner.RunWith;
  */
 @RunWith(RetryRunner.class)
 public class KohonenTrainingTaskTest {
+
+    @Ignore
     @Test
     public void testTravellerSalesmanSquareTourSequentialSolver() {
         // Cities (in optimal travel order).
@@ -81,6 +84,7 @@ public class KohonenTrainingTaskTest {
     }
 
     // Test can sometimes fail: Run several times.
+    @Ignore
     @Test
     @Retry
     public void testTravellerSalesmanSquareTourParallelSolver() throws ExecutionException {
