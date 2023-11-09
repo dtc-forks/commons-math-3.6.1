@@ -24,7 +24,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.apache.commons</groupId>
   <artifactId>commons-math3</artifactId>
-  <version>3.7-SNAPSHOT</version>
+  <version>3.6.1</version>
   <name>Apache Commons Math</name>
 
   <inceptionYear>2003</inceptionYear>
@@ -359,7 +359,19 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+  <!--reDiscover4J-->
+
+
+    <dependency>
+      <groupId>org.rediscover4j</groupId>
+      <artifactId>reDiscover4j</artifactId>
+      <version>0.0.1</version>
+      <scope>system</scope>
+      <systemPath>/Users/meganmaton/Repos/DiscoverTestCoverage/reDiscover4j/lib/build/libs/reDiscover4j-0.0.1-SNAPSHOT.jar</systemPath>
+    </dependency>
+
   </dependencies>
+
 
   <properties>
     <!-- Do not change: "math" is the name of the component even if the
@@ -369,7 +381,7 @@
     <!-- This value must reflect the current name of the base package. -->
     <commons.osgi.symbolicName>org.apache.commons.math3</commons.osgi.symbolicName>
     <!-- do not use snapshot suffix here -->
-    <commons.release.version>3.7-SNAPSHOT</commons.release.version>
+    <commons.release.version>3.6.1</commons.release.version>
     <commons.release.desc>(requires Java 1.5+)</commons.release.desc>
     <commons.rc.version>RC1</commons.rc.version>
     <commons.binary.suffix>-bin</commons.binary.suffix>
@@ -383,8 +395,9 @@
     <commons.jira.id>MATH</commons.jira.id>
     <commons.jira.pid>12310485</commons.jira.pid>
     <commons.encoding>UTF-8</commons.encoding>
-    <maven.compiler.source>1.5</maven.compiler.source>
-    <maven.compiler.target>1.5</maven.compiler.target>
+    <!-- Move to 1.7 to work with maven version used -->
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
     <math.pmd.version>3.5</math.pmd.version>
     <math.findbugs.version>3.0.2</math.findbugs.version>
     <math.checkstyle.version>2.17</math.checkstyle.version>
@@ -412,7 +425,17 @@
   </properties>
 
   <build>
-      <plugins>
+    <plugins>
+      <!-- Skip code checking plugins configured in parent pom -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>animal-sniffer-maven-plugin</artifactId>
+        <configuration>
+            <skip>true</skip>
+        </configuration>
+      
+    </plugin>
+      
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
@@ -425,6 +448,7 @@
               <excludes>
                 <exclude>**/*AbstractTest.java</exclude>
               </excludes>
+              <argLine>-Xmx1024m</argLine>
           </configuration>
         </plugin>
         <plugin>
@@ -803,4 +827,3 @@
   </profiles>
 
 </project>
-
