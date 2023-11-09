@@ -14,3 +14,9 @@ target
 *.iws
 .idea
 *~
+
+
+**/red4j-data/**
+*.java.orig
+**/cp.txt
+.vscode/settings.json
