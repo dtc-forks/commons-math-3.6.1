@@ -361,14 +361,6 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.rediscover4j</groupId>
-      <artifactId>reDiscover4j</artifactId>
-      <version>0.0.1</version>
-      <scope>system</scope>
-      <systemPath>${env.RED4JCP}</systemPath>
-    </dependency>
-
   </dependencies>
 
 
@@ -431,52 +423,52 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>animal-sniffer-maven-plugin</artifactId>
         <configuration>
-            <skip>true</skip>
+          <skip>true</skip>
         </configuration>
-      
-    </plugin>
-      
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-            <configuration>
-              <includes>
-                <include>**/*Test.java</include>
-                <include>**/*TestBinary.java</include>
-                <include>**/*TestPermutations.java</include>
-              </includes>
-              <excludes>
-                <exclude>**/*AbstractTest.java</exclude>
-              </excludes>
-              <argLine>-Xmx1024m</argLine>
-          </configuration>
-        </plugin>
-        <plugin>
-          <artifactId>maven-assembly-plugin</artifactId>
-          <configuration>
-            <descriptors>
-              <descriptor>src/main/assembly/src.xml</descriptor>
-              <descriptor>src/main/assembly/bin.xml</descriptor>
-            </descriptors>
-            <!-- There are a lot of long file names. Suppress the warnings. -->
-            <tarLongFileMode>gnu</tarLongFileMode>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>clirr-maven-plugin</artifactId>
-          <version>${math.clirr.version}</version>
-          <configuration>
-            <minSeverity>${minSeverity}</minSeverity>
-            <ignoredDifferencesFile>${basedir}/clirr-ignored.xml</ignoredDifferencesFile>
-          </configuration>
-          <executions>
-            <execution>
-              <goals>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
+
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <includes>
+            <include>**/*Test.java</include>
+            <include>**/*TestBinary.java</include>
+            <include>**/*TestPermutations.java</include>
+          </includes>
+          <excludes>
+            <exclude>**/*AbstractTest.java</exclude>
+          </excludes>
+          <argLine>-Xmx1024m</argLine>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <descriptors>
+            <descriptor>src/main/assembly/src.xml</descriptor>
+            <descriptor>src/main/assembly/bin.xml</descriptor>
+          </descriptors>
+          <!-- There are a lot of long file names. Suppress the warnings. -->
+          <tarLongFileMode>gnu</tarLongFileMode>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>clirr-maven-plugin</artifactId>
+        <version>${math.clirr.version}</version>
+        <configuration>
+          <minSeverity>${minSeverity}</minSeverity>
+          <ignoredDifferencesFile>${basedir}/clirr-ignored.xml</ignoredDifferencesFile>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <artifactId>maven-pmd-plugin</artifactId>
         <version>${math.pmd.version}</version>
@@ -565,6 +557,17 @@
             src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;&apos;</additionalparam>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.15.6</version>
+        <configuration>
+          <outputFormats><value>XML</value><value>HTML</value></outputFormats>
+          <timestampedReports>false</timestampedReports>
+        </configuration>
+    </plugin>
+
     </plugins>
   </build>
 
@@ -835,7 +838,6 @@
               <excludesFile>${java.io.tmpdir}/${user.name}EkstaziExcludes</excludesFile>
             </configuration>
           </plugin>
-
         </plugins>
       </build>
     </profile>
